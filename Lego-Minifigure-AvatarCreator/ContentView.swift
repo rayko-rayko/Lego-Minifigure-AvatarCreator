@@ -38,7 +38,6 @@ struct SelectionImageView: View {
     }
 }
 
-
 struct ContentView: View {
     @State private var userSelectedHead: ImageHead?
     @State private var userSelectedBody: ImageBody?
@@ -144,6 +143,7 @@ struct FinalSelectionView: View {
         .padding(.horizontal)
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
