@@ -24,10 +24,18 @@ struct ContentView: View {
                             CustomImageView(imagePath: item.rawValue)
                                 .frame(width: 100, height: 100)
                                 .padding()
-                                // Başlığa tıklandığında seçilen başlığı güncelle
+                                // Tıklama animasyonu ekleniyor
                                 .onTapGesture {
-                                    contentViewModel.selectedHead = item
+                                    withAnimation {
+                                        if contentViewModel.selectedHead == item {
+                                            contentViewModel.selectedHead = nil
+                                        } else {
+                                            contentViewModel.selectedHead = item
+                                        }
+                                    }
                                 }
+                                // Görsele tıklanıldığında scaleEffect ekleniyor
+                                .scaleEffect(contentViewModel.selectedHead == item ? 1.2 : 1.0)
                         }
                     })
                 }
@@ -39,17 +47,26 @@ struct ContentView: View {
             Section {
                 ScrollView(.horizontal) {
                     LazyHStack(content: {
-                        // Vücut seçeneklerini yatay olarak gösteren ScrollView
+                        // Başlık seçeneklerini yatay olarak gösteren ScrollView
                         ForEach(ImageBody.allCases) { item in
-                            // Her vücut için özel görüntü görüntüleyici
+                            // Her başlık için özel görüntü görüntüleyici
                             CustomImageView(imagePath: item.rawValue)
                                 .frame(width: 100, height: 100)
                                 .padding()
-                                // Vücuda tıklandığında seçilen vücudu güncelle
+                                // Tıklama animasyonu ekleniyor
                                 .onTapGesture {
-                                    contentViewModel.selectedBody = item
+                                    withAnimation {
+                                        if contentViewModel.selectedBody == item {
+                                            contentViewModel.selectedBody = nil
+                                        } else {
+                                            contentViewModel.selectedBody = item
+                                        }
+                                    }
                                 }
+                                // Görsele tıklanıldığında scaleEffect ekleniyor
+                                .scaleEffect(contentViewModel.selectedBody == item ? 1.2 : 1.0)
                         }
+
                     })
                 }
             } header: {
@@ -62,16 +79,26 @@ struct ContentView: View {
                 ScrollView(.horizontal) {
                     LazyHStack(content: {
                         // Bacak seçeneklerini yatay olarak gösteren ScrollView
+                        // Başlık seçeneklerini yatay olarak gösteren ScrollView
                         ForEach(ImageLeg.allCases) { item in
-                            // Her bacak için özel görüntü görüntüleyici
+                            // Her başlık için özel görüntü görüntüleyici
                             CustomImageView(imagePath: item.rawValue)
                                 .frame(width: 100, height: 100)
                                 .padding()
-                                // Bacağa tıklandığında seçilen bacağı güncelle
+                                // Tıklama animasyonu ekleniyor
                                 .onTapGesture {
-                                    contentViewModel.selectedLeg = item
+                                    withAnimation {
+                                        if contentViewModel.selectedLeg == item {
+                                            contentViewModel.selectedLeg = nil
+                                        } else {
+                                            contentViewModel.selectedLeg = item
+                                        }
+                                    }
                                 }
+                                // Görsele tıklanıldığında scaleEffect ekleniyor
+                                .scaleEffect(contentViewModel.selectedLeg == item ? 1.2 : 1.0)
                         }
+
                     })
                 }
             } header: {
@@ -99,134 +126,11 @@ struct ContentView: View {
                     })
                 Spacer()
             }
-        } //: Form
-    } //: Body
+        }
+    }
 }
 
 #Preview {
     // Görünümün önizlemesi
     ContentView()
 }
-
-
-
-/*
-import SwiftUI
-
-struct SelectionImageView: View {
-    var image: String
-
-    var body: some View {
-        Image(image)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 150, height: 150)
-    }
-}
-
-struct ContentView: View {
-    @State private var userSelectedHead: ImageHead?
-    @State private var userSelectedBody: ImageBody?
-    @State private var userSelectedLeg: ImageLeg?
-
-    var body: some View {
-        NavigationView {
-            ScrollView(.horizontal) {
-                LazyHGrid(rows: [GridItem(.flexible())]) {
-                    ForEach(ImageHead.allCases, id: \.self) { head in
-                        NavigationLink(destination: BodySelectionView(userSelectedHead: $userSelectedHead, userSelectedBody: $userSelectedBody, userSelectedLeg: $userSelectedLeg)) {
-                            VStack {
-                                SelectionImageView(image: head.rawValue)
-                            }
-                        }
-                        .padding()
-                    }
-                }
-            }
-            .navigationTitle("Select Head")
-        }
-    }
-}
-
-struct BodySelectionView: View {
-    @Binding var userSelectedHead: ImageHead?
-    @Binding var userSelectedBody: ImageBody?
-    @Binding var userSelectedLeg: ImageLeg?
-
-    var body: some View {
-        ScrollView(.horizontal) {
-            LazyHGrid(rows: [GridItem(.flexible())]) {
-                ForEach(ImageBody.allCases, id: \.self) { body in
-                    NavigationLink(destination: LegSelectionView(userSelectedHead: $userSelectedHead, userSelectedBody: $userSelectedBody, userSelectedLeg: $userSelectedLeg)) {
-                        VStack {
-                            SelectionImageView(image: body.rawValue)
-                        }
-                    }
-                    .padding()
-                }
-            }
-        }
-        .navigationTitle("Select Body")
-    }
-}
-
-struct LegSelectionView: View {
-    @Binding var userSelectedHead: ImageHead?
-    @Binding var userSelectedBody: ImageBody?
-    @Binding var userSelectedLeg: ImageLeg?
-
-    var body: some View {
-        ScrollView(.horizontal) {
-            LazyHGrid(rows: [GridItem(.flexible())]) {
-                ForEach(ImageLeg.allCases, id: \.self) { leg in
-                    NavigationLink(destination: FinalSelectionView(userSelectedHead: $userSelectedHead, userSelectedBody: $userSelectedBody, userSelectedLeg: $userSelectedLeg, selectedLeg: leg)) {
-                        VStack {
-                            SelectionImageView(image: leg.rawValue)
-                        }
-                    }
-                    .padding()
-                }
-            }
-        }
-        .navigationTitle("Select Leg")
-    }
-}
-
-struct FinalSelectionView: View {
-    @Binding var userSelectedHead: ImageHead?
-    @Binding var userSelectedBody: ImageBody?
-    @Binding var userSelectedLeg: ImageLeg?
-    var selectedLeg: ImageLeg
-
-    var body: some View {
-        VStack {
-          if let head = userSelectedHead {
-            SelectionImageView(image: head.rawValue)
-            Text("Selected Head: \(head.rawValue)")
-          } else {
-            Text("Default Head Image")
-          }
-
-          if let body = userSelectedBody {
-            SelectionImageView(image: body.rawValue)
-            Text("Selected Body: \(body.rawValue)")
-          } else {
-            Text("Default Body Image")
-          }
-
-          SelectionImageView(image: selectedLeg.rawValue)
-
-          Spacer()
-        }
-        .navigationTitle("Final Selection")
-        .padding(.horizontal)
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-*/

@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct CustomImageView: View {
+    // Görüntünün dosya yolunu tutan sabit
     let imagePath: String
 
     var body: some View {
+        // Özel görüntü görüntüleyici
         Image(imagePath)
             .resizable()
             .aspectRatio(contentMode: .fit)
@@ -19,6 +21,6 @@ struct CustomImageView: View {
 }
 
 #Preview {
+    // Görüntüyü önizlemek için örnek kullanım
     CustomImageView(imagePath: "head0")
 }
-
