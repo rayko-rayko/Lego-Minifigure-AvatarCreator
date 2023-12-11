@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B1113AA2B26EC0D00D6FF8C /* ImageHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1113A92B26EC0D00D6FF8C /* ImageHead.swift */; };
+		7B1113AC2B26EC3D00D6FF8C /* ImageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1113AB2B26EC3D00D6FF8C /* ImageBody.swift */; };
+		7B1113AF2B26EC5100D6FF8C /* ImageLeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1113AE2B26EC5100D6FF8C /* ImageLeg.swift */; };
+		7B1113B12B26EC9700D6FF8C /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1113B02B26EC9700D6FF8C /* ContentViewModel.swift */; };
+		7B1113B32B26ECE000D6FF8C /* CustomUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1113B22B26ECE000D6FF8C /* CustomUserView.swift */; };
+		7B1113B52B26ECFD00D6FF8C /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1113B42B26ECFD00D6FF8C /* CustomImageView.swift */; };
 		7B3ADE0B2B25D8040012EBAD /* Lego_Minifigure_AvatarCreatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3ADE0A2B25D8040012EBAD /* Lego_Minifigure_AvatarCreatorApp.swift */; };
 		7B3ADE0D2B25D8040012EBAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3ADE0C2B25D8040012EBAD /* ContentView.swift */; };
 		7B3ADE0F2B25D8050012EBAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B3ADE0E2B25D8050012EBAD /* Assets.xcassets */; };
@@ -14,6 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B1113A92B26EC0D00D6FF8C /* ImageHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHead.swift; sourceTree = "<group>"; };
+		7B1113AB2B26EC3D00D6FF8C /* ImageBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBody.swift; sourceTree = "<group>"; };
+		7B1113AE2B26EC5100D6FF8C /* ImageLeg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLeg.swift; sourceTree = "<group>"; };
+		7B1113B02B26EC9700D6FF8C /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		7B1113B22B26ECE000D6FF8C /* CustomUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUserView.swift; sourceTree = "<group>"; };
+		7B1113B42B26ECFD00D6FF8C /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		7B3ADE072B25D8040012EBAD /* Lego-Minifigure-AvatarCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lego-Minifigure-AvatarCreator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B3ADE0A2B25D8040012EBAD /* Lego_Minifigure_AvatarCreatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lego_Minifigure_AvatarCreatorApp.swift; sourceTree = "<group>"; };
 		7B3ADE0C2B25D8040012EBAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +44,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B1113A42B26EB9500D6FF8C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7B3ADE0A2B25D8040012EBAD /* Lego_Minifigure_AvatarCreatorApp.swift */,
+				7B3ADE0E2B25D8050012EBAD /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7B1113A52B26EBAE00D6FF8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B3ADE0C2B25D8040012EBAD /* ContentView.swift */,
+				7B1113B22B26ECE000D6FF8C /* CustomUserView.swift */,
+				7B1113B42B26ECFD00D6FF8C /* CustomImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B1113A72B26EBC100D6FF8C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7B1113B02B26EC9700D6FF8C /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B1113A82B26EBCD00D6FF8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B1113A92B26EC0D00D6FF8C /* ImageHead.swift */,
+				7B1113AB2B26EC3D00D6FF8C /* ImageBody.swift */,
+				7B1113AE2B26EC5100D6FF8C /* ImageLeg.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7B3ADDFE2B25D8040012EBAD = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +100,10 @@
 		7B3ADE092B25D8040012EBAD /* Lego-Minifigure-AvatarCreator */ = {
 			isa = PBXGroup;
 			children = (
-				7B3ADE0A2B25D8040012EBAD /* Lego_Minifigure_AvatarCreatorApp.swift */,
-				7B3ADE0C2B25D8040012EBAD /* ContentView.swift */,
-				7B3ADE0E2B25D8050012EBAD /* Assets.xcassets */,
+				7B1113A42B26EB9500D6FF8C /* App */,
+				7B1113A52B26EBAE00D6FF8C /* View */,
+				7B1113A72B26EBC100D6FF8C /* ViewModel */,
+				7B1113A82B26EBCD00D6FF8C /* Model */,
 				7B3ADE102B25D8050012EBAD /* Preview Content */,
 			);
 			path = "Lego-Minifigure-AvatarCreator";
@@ -137,8 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B1113AF2B26EC5100D6FF8C /* ImageLeg.swift in Sources */,
+				7B1113B52B26ECFD00D6FF8C /* CustomImageView.swift in Sources */,
 				7B3ADE0D2B25D8040012EBAD /* ContentView.swift in Sources */,
+				7B1113B12B26EC9700D6FF8C /* ContentViewModel.swift in Sources */,
+				7B1113AA2B26EC0D00D6FF8C /* ImageHead.swift in Sources */,
 				7B3ADE0B2B25D8040012EBAD /* Lego_Minifigure_AvatarCreatorApp.swift in Sources */,
+				7B1113AC2B26EC3D00D6FF8C /* ImageBody.swift in Sources */,
+				7B1113B32B26ECE000D6FF8C /* CustomUserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
